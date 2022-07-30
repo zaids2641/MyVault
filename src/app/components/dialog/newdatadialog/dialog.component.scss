@@ -1,0 +1,16 @@
+.ng-template {
+  padding: 20px 0 !important;
+  display: flex;
+  flex-direction: column;
+  width: 620px;
+  height: 490px;
+  overflow: auto;
+}
+
+.success {
+  color: green;
+}
+
+mat-error p {
+  font-size: 16px;
+}

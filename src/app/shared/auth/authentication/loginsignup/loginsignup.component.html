@@ -1,0 +1,120 @@
+<div class="main">
+  <div class="form-container">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h1 class="form-header-text">Welcome to your Vault</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <div
+        class="form"
+        *ngIf="
+          toggleContent == 'signin';
+          else toggleContent == 'forgetPassword' ? resetPassword : resetPassword
+        "
+      >
+        <form (ngSubmit)="LogIn(loginForm.value)" [formGroup]="loginForm">
+          <div class="form-field">
+            <div class="form-input-field">
+              <div class="input-icon-container">
+                <input
+                  type="email"
+                  autocomplete="off"
+                  formControlName="email"
+                  name="email"
+                  #userName
+                  id="email"
+                  placeholder="Enter your email"
+                />
+                <div class="icons">
+                  <mat-icon> email</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div class="form-input-field">
+              <div class="input-icon-container">
+                <div class="icons">
+                  <mat-icon>lock</mat-icon>
+                </div>
+                <input
+                  type="password"
+                  autocomplete="off"
+                  formControlName="password"
+                  name="password"
+                  #userPassword
+                  id="password"
+                  placeholder="Enter you password"
+                />
+              </div>
+            </div>
+
+            <div class="form-action">
+              <button
+                type="submit"
+                mat-raised-button
+                class="mat-elevation-z0"
+                [disabled]="!loginForm.valid"
+              >
+                Login
+              </button>
+              <div class="google-auth">
+                <span class="google-signin-button" (click)="GoogleAuth()"
+                  >Sign in with Google</span
+                >
+              </div>
+              <div class="google-auth" style="margin-top: -1px !important; font-size: 12px">
+                <span
+                  class="google-signin-button"
+                  (click)="toggle('forgetPassword')"
+                  >Forget Password?</span
+                >
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #resetPassword>
+  <div class="form">
+    <form [formGroup]="loginForm">
+      <div class="form-field">
+        <div class="form-input-field">
+          <div class="input-icon-container">
+            <input
+              type="email"
+              autocomplete="off"
+              formControlName="email"
+              name="email"
+              #email
+              id="email"
+              placeholder="Enter your email"
+            />
+            <div class="icons">
+              <mat-icon> email</mat-icon>
+            </div>
+          </div>
+        </div>
+        <div class="form-input-field">
+          <div class="input-icon-container">
+            <input
+              type="submit"
+              (click)="passwordReset(email)"
+              value="Reset Password"
+            />
+          </div>
+        </div>
+
+        <div class="form-action">
+          <div class="google-auth">
+            <span class="google-signin-button" (click)="toggle('signin')"
+              >Back to sign in</span
+            >
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

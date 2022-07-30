@@ -1,0 +1,15 @@
+.main {
+  padding: 20px 20px;
+}
+.main mat-tab-group {
+  margin: 0 auto;
+}
+.main mat-tab-group .mat-tab-label-icon {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}/*# sourceMappingURL=vaultapp.component.css.map */

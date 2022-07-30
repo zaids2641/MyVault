@@ -1,0 +1,28 @@
+mat-tab-group {
+  margin: 0 auto;
+  width: 50%;
+  height: 75vh;
+}
+mat-tab-group .mat-tab-label-icon {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.table-container {
+  width: 100%;
+}
+.table-container .input-button-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  padding-right: 25px;
+}/*# sourceMappingURL=crypto.component.css.map */

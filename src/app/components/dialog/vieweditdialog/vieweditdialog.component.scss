@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+
+  .data-content {
+    .data-container {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-items: center;
+      align-items: center;
+      align-content: center;
+      gap: 15px;
+      margin: 5px 0 !important;
+
+      .data-name,
+      .data-value {
+        padding: 5px 0 !important;
+      }
+
+      .data-name {
+        width: 175px;
+        font-weight: 600;
+      }
+
+      .data-value {
+        width: 100%;
+
+        mat-form-field {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .modal-action {
+    margin-top: 35px !important;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+  }
+}
+
+.ng-template {
+  padding: 20px 0 !important;
+  display: flex;
+  flex-direction: column;
+  width: 590px;
+  height: 490px;
+  overflow: auto;
+}

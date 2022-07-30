@@ -1,0 +1,122 @@
+<div class="table-container" fxLayout="column" fxLayoutAlign="center">
+  <div class="input-button-container">
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. Mia"
+        #input
+        #searchFormData="ngForm"
+        ngForm
+      />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openDialog((type = 'web'))"
+    >
+      Add
+    </button>
+  </div>
+
+  <!-- Error, dataLoading Section -->
+  <mat-error *ngIf="!savedChanges" mat-button mat-raised-button>
+    <div>
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="dataLoading"
+      ></mat-progress-bar>
+      <mat-error *ngIf="error" color="warn">{{ errorMessage }}</mat-error>
+    </div>
+  </mat-error>
+
+  <mat-error *ngIf="savedChanges" class="success">
+    <mat-card
+      class="mat-elevation-z6"
+      style="width: 450px; margin: 0 auto !important"
+    >
+      <h2 style="color: green">Data Successfully Deleted</h2>
+      <label class="small-spacer"></label>
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close
+        (click)="savedChanges = false"
+      >
+        Ok
+      </button>
+    </mat-card>
+  </mat-error>
+
+  <table *ngIf="!savedChanges" mat-table [dataSource]="dataSource" matSort>
+    <!-- Crypto Wallet Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Crypto Wallet</th>
+      <td mat-cell *matCellDef="let row"></td>
+    </ng-container>
+
+    <!-- Platform Column -->
+    <ng-container matColumnDef="platform">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Platform</th>
+      <td mat-cell *matCellDef="let row">{{ row.platform }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+    </ng-container>
+
+    <!-- Password Column -->
+    <ng-container matColumnDef="site_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Website Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.site_name }}</td>
+    </ng-container>
+
+    <!-- Registered Number Column -->
+    <ng-container matColumnDef="auth">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Authentication</th>
+      <td mat-cell *matCellDef="let row">{{ row.auth }}</td>
+    </ng-container>
+
+    <!-- Recovery Column -->
+    <ng-container matColumnDef="recovery_mode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Account Recovery
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.recovery_mode }}</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          mat-icon-button
+          (click)="openViewEditDialog(row._id, (type = 'web'))"
+        >
+          <mat-icon color="green">remove_red_eye</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteDoc(row._id)">
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

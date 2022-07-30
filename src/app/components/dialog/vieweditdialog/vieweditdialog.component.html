@@ -1,0 +1,1475 @@
+<div class="container">
+  <div class="data-content">
+    <ng-container
+    [ngTemplateOutlet]="
+        toggleContent == 'email' ? email
+        : toggleContent == 'web' ? web
+        : toggleContent == 'crypto' ? crypto
+        : toggleContent == 'others' ? others
+        : toggleContent == 'updateWeb' ? updateWeb
+        : toggleContent == 'updateCrypto' ? updateCrypto
+        : toggleContent == 'updateOthers' ? updateOthers
+        : toggleContent == 'success' ? success
+        : toggleContent == 'updateEmail' ? updateEmail : updateEmail
+      "
+    >
+      <!-- View -->
+      
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #email>
+  <div class="ng-template">
+    <div class="data-header">
+        <h1 class="header-text">{{vaultData.provider}} Information</h1>
+    </div>
+
+    <div class="data-container">
+      <div class="data-name">
+        <span>Provider</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.provider }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Email</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.email }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Password</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.password }}
+      </div>
+    </div>        
+    <div class="data-container">
+      <div class="data-name">
+        <span>Registered Number</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.auth }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Recovery</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.recovery_mode }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.auth }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Question</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_question }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Answer</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_answer }}
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+      <button mat-raised-button color="primary" mat-button (click)="toggle('updateEmail')">Update</button>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #crypto>
+  <div class="ng-template">
+    <div class="data-header">
+        <h1 class="header-text">{{vaultData.site_name}} Information</h1>
+    </div>
+
+    <div class="data-container">
+      <div class="data-name">
+        <span>Platform</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.platform }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Website Name</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.site_name }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Email</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.email }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Password</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.password }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Transaction Password</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.transaction_password }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account User Name</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.account_username }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Registered Number</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.reg_number }}
+      </div>
+    </div>        
+    <div class="data-container">
+      <div class="data-name">
+        <span>URL</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.url }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Recovery</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.recovery_mode }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.auth }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Question</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_question }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Answer</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_answer }}
+      </div>
+    </div>
+    
+    <div class="data-container">
+      <div class="data-name">
+        <span>Private Key</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.privatekey }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Token</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.token }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Wallet Phrase</span>
+      </div>
+      <div class="data-value">
+        <p>{{ vaultData.walletphrase }}</p>
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+      <button mat-raised-button color="primary" mat-button (click)="toggle('updateCrypto')">Update</button>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #others>
+  <div class="ng-template">
+    <div class="data-header">
+        <h1 class="header-text">{{vaultData.site_name}} Information</h1>
+    </div>
+
+    <div class="data-container">
+      <div class="data-name">
+        <span>Platform</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.platform }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.site_name == false">
+      <div class="data-name">
+        <span>Website Name</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.site_name }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Email</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.email }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Password</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.password }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.site_password == false">
+      <div class="data-name">
+        <span>Website Password</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.site_password }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account User Name</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.account_username }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>User ID</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.user_id }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication Method</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.auth }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Registered Number</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.reg_number }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Recovery</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.recovery_mode }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>URL</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.url }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Question</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_question }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Answer</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_answer }}
+      </div>
+    </div>
+    
+    <div class="data-container" *ngIf="!vaultData.db_admin == false">
+      <div class="data-name">
+        <span>Database Admin</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.db_admin }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.db_username == false">
+      <div class="data-name">
+        <span>Database Username</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.db_username }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.db_name == false">
+      <div class="data-name">
+        <span>Database Name</span>
+      </div>
+      <div class="data-value">
+        <p>{{ vaultData.db_name }}</p>
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.db_password == false">
+      <div class="data-name">
+        <span>Database Password</span>
+      </div>
+      <div class="data-value">
+        <p>{{ vaultData.db_password }}</p>
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.db_manager == false">
+      <div class="data-name">
+        <span>Database Manager</span>
+      </div>
+      <div class="data-value">
+        <p>{{ vaultData.db_manager }}</p>
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.website_url == false">
+      <div class="data-name">
+        <span>Your Website or App Address</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.website_url }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.ftp_username == false">
+      <div class="data-name">
+        <span>FTP Username</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.ftp_username }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.ftp_password == false">
+      <div class="data-name">
+        <span>FTP Password</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.ftp_password }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.ftp_hostname == false">
+      <div class="data-name">
+        <span>FTP Hostname</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.ftp_hostname }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.ftp_port == false">
+      <div class="data-name">
+        <span>FTP Port</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.ftp_port }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.app_id == false">
+      <div class="data-name">
+        <span>Application ID</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.app_id }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.application_app_id == false">
+      <div class="data-name">
+        <span>Application App ID</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.application_app_id }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.app_secret == false">
+      <div class="data-name">
+        <span>App Secret</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.app_secret }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.client_token == false">
+      <div class="data-name">
+        <span>Client Token</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.client_token }}
+      </div>
+    </div>
+    <div class="data-container" *ngIf="!vaultData.access_token == false">
+      <div class="data-name">
+        <span>Access Token</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.access_token }}
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+      <button mat-raised-button color="primary" mat-button (click)="toggle('updateOthers')">Update</button>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #web>
+  <div class="ng-template">
+    <div class="data-header">
+        <h1 class="header-text">{{vaultData.site_name}} Information</h1>
+    </div>
+
+    <div class="data-container">
+      <div class="data-name">
+        <span>Platform</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.platform }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Website Name</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.site_name }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Email</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.email }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Password</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.password }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>User ID</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.user_id }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Registered Number</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.reg_number }}
+      </div>
+    </div>        
+    <div class="data-container">
+      <div class="data-name">
+        <span>URL</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.url }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Recovery</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.recovery_mode }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.auth }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Question</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_question }}
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Answer</span>
+      </div>
+      <div class="data-value">
+        {{ vaultData.security_answer }}
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+      <button mat-raised-button color="primary" mat-button (click)="toggle('updateWeb')">Update</button>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #updateEmail>
+  <div class="ng-template">
+  <div class="data-header" *ngIf="!savedChanges">
+    <h1 class="header-text">Updating {{vaultData.provider}}</h1>
+  </div>
+
+  <mat-error *ngIf="!savedChanges" mat-button mat-raised-button>
+    <div>
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="dataLoading"
+      ></mat-progress-bar>
+      <mat-error *ngIf="error" color="warn">{{ errorMessage }}</mat-error>
+    </div>
+  </mat-error>
+
+  <!-- <mat-error *ngIf="savedChanges" class="success">
+    <h2 style="color: green">{{vaultData.name}} Successfully Updated</h2>
+    <label class="small-spacer"></label>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+      (click)="
+        savedChanges = false
+      "
+    >
+      Ok
+    </button>
+  </mat-error> -->
+
+  <form *ngIf="!savedChanges" #editVault="ngForm" novalidate [formGroup]="emailGroup">
+    <input type="hidden" name="_id" formControlName="_id" [ngModel]="vaultData._id" required/>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Provider</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Provider</mat-label>
+          <input type="text" matInput formControlName="provider" name="provider" [ngModel]="vaultData.provider" placeholder="Enter email provider">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Email</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Email Address</mat-label>
+          <input type="email" matInput formControlName="email" name="email" [ngModel]="vaultData.email" placeholder="Enter email address">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Password</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Password</mat-label>
+          <input type="text" matInput formControlName="password" name="password" [ngModel]="vaultData.password" placeholder="Enter password">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Registered Mobile Number</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Registered Mobile Number</mat-label>
+          <input type="text" matInput formControlName="reg_number" name="reg_number" [ngModel]="vaultData.reg_number" placeholder="Enter Registered Number">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Authentication</mat-label>
+          <input type="text" matInput formControlName="auth" name="auth" [ngModel]="vaultData.auth" placeholder="Enter authentication">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Recovery</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Account Recovery</mat-label>
+          <input type="text" matInput formControlName="recovery_mode" name="recovery_mode" [ngModel]="vaultData.recovery_mode" placeholder="Enter account recovery mode">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Authentication</mat-label>
+          <input type="text" matInput formControlName="auth" name="auth" [ngModel]="vaultData.auth" placeholder="Enter Authentication Method">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Question</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Security Question</mat-label>
+          <input type="text" matInput formControlName="security_question" name="security_question" [ngModel]="vaultData.security_question" placeholder="Enter security question">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Answer</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Security Answer</mat-label>
+          <input type="text" matInput formControlName="security_answer" name="security_answer" [ngModel]="vaultData.security_answer" placeholder="Enter security answer">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+      <button mat-stroked-button color="warn" (click)="toggle('vaultInfo')">Back</button>
+      <button mat-raised-button color="primary" mat-button type="submit" (click)="updateData();">Update</button>
+    </div>
+  </form>
+
+  </div>
+</ng-template>
+
+<ng-template #updateWeb>
+  <div class="ng-template">
+  <div class="data-header" *ngIf="!savedChanges">
+    <h1 class="header-text">Updating {{vaultData.site_name}}</h1>
+  </div>
+
+  <mat-error *ngIf="!savedChanges" mat-button mat-raised-button>
+    <div>
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="dataLoading"
+      ></mat-progress-bar>
+      <mat-error *ngIf="error" color="warn">{{ errorMessage }}</mat-error>
+    </div>
+  </mat-error>
+
+  <!-- <mat-error *ngIf="savedChanges" class="success">
+    <h2 style="color: green">{{vaultData.site_name}} Successfully Updated</h2>
+    <label class="small-spacer"></label>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+      (click)="
+        savedChanges = false
+      "
+    >
+      Ok
+    </button>
+  </mat-error> -->
+
+  <form *ngIf="!savedChanges" #editVault="ngForm" novalidate [formGroup]="webGroup">
+    <input type="hidden" name="_id" formControlName="_id" [ngModel]="vaultData._id" required/>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Platform</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Platform</mat-label>
+          <input type="text" matInput formControlName="platform" name="platform" [ngModel]="vaultData.platform" placeholder="Enter Platform">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Website Name</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Website Name</mat-label>
+          <input type="text" matInput formControlName="site_name" name="site_name" [ngModel]="vaultData.site_name" placeholder="Enter Website Name">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Email</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Email Address</mat-label>
+          <input type="email" matInput formControlName="email" name="email" [ngModel]="vaultData.email" placeholder="Enter email address">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Password</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Password</mat-label>
+          <input type="text" matInput formControlName="password" name="password" [ngModel]="vaultData.password" placeholder="Enter password">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>User ID</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>User ID</mat-label>
+          <input type="text" matInput formControlName="user_id" name="user_id" [ngModel]="vaultData.user_id" placeholder="Enter User ID">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Registered Mobile Number</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Registered Mobile Number</mat-label>
+          <input type="text" matInput formControlName="reg_number" name="reg_number" [ngModel]="vaultData.reg_number" placeholder="Enter Registered Number">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Authentication</mat-label>
+          <input type="text" matInput formControlName="auth" name="auth" [ngModel]="vaultData.auth" placeholder="Enter authentication">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Recovery</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Account Recovery</mat-label>
+          <input type="text" matInput formControlName="recovery_mode" name="recovery_mode" [ngModel]="vaultData.recovery_mode" placeholder="Enter account recovery mode">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Authentication</mat-label>
+          <input type="text" matInput formControlName="auth" name="auth" [ngModel]="vaultData.auth" placeholder="Enter Authentication Method">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Question</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Security Question</mat-label>
+          <input type="text" matInput formControlName="security_question" name="security_question" [ngModel]="vaultData.security_question" placeholder="Enter security question">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Answer</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Security Answer</mat-label>
+          <input type="text" matInput formControlName="security_answer" name="security_answer" [ngModel]="vaultData.security_answer" placeholder="Enter security answer">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+      <button mat-stroked-button color="warn" (click)="toggle('web')">Back</button>
+      <button mat-raised-button color="primary" mat-button type="submit" (click)="updateData();">Update</button>
+    </div>
+  </form>
+
+  </div>
+</ng-template>
+
+<ng-template #updateCrypto>
+  <div class="ng-template">
+  <div class="data-header" *ngIf="!savedChanges">
+    <h1 class="header-text">Updating {{vaultData.provider}}</h1>
+  </div>
+
+  <mat-error *ngIf="!savedChanges" mat-button mat-raised-button>
+    <div>
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="dataLoading"
+      ></mat-progress-bar>
+      <mat-error *ngIf="error" color="warn">{{ errorMessage }}</mat-error>
+    </div>
+  </mat-error>
+
+  <!-- <mat-error *ngIf="savedChanges" class="success">
+    <h2 style="color: green">{{vaultData.name}} Successfully Updated</h2>
+    <label class="small-spacer"></label>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+      (click)="
+        savedChanges = false
+      "
+    >
+      Ok
+    </button>
+  </mat-error> -->
+
+  <form *ngIf="!savedChanges" #editVault="ngForm" novalidate [formGroup]="cryptoGroup">
+    <input type="hidden" name="_id" formControlName="_id" [ngModel]="vaultData._id" required/>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Platform</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Platform</mat-label>
+          <input type="text" matInput formControlName="platform" name="platform" [ngModel]="vaultData.platform" placeholder="Enter Platform">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Name</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput formControlName="site_name" name="site_name" [ngModel]="vaultData.site_name" placeholder="Enter Name">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>URL</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>URL</mat-label>
+          <input type="text" matInput formControlName="url" name="url" [ngModel]="vaultData.url" placeholder="Enter URL">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Email</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Email Address</mat-label>
+          <input type="email" matInput formControlName="email" name="email" [ngModel]="vaultData.email" placeholder="Enter email address">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Username</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Account Username</mat-label>
+          <input type="text" matInput formControlName="account_username" name="account_username" [ngModel]="vaultData.account_username" placeholder="Enter Account Username">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Authentication Method</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Authentication Method</mat-label>
+          <input type="text" matInput formControlName="auth" name="auth" [ngModel]="vaultData.auth" placeholder="Enter authentication">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Password</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Password</mat-label>
+          <input type="text" matInput formControlName="password" name="password" [ngModel]="vaultData.password" placeholder="Enter password">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Transaction Password</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Transaction Password</mat-label>
+          <input type="text" matInput formControlName="transaction_password" name="transaction_password" [ngModel]="vaultData.transaction_password" placeholder="Enter Transaction Password">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Registered Mobile Number</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Registered Mobile Number</mat-label>
+          <input type="text" matInput formControlName="reg_number" name="reg_number" [ngModel]="vaultData.reg_number" placeholder="Enter Registered Number">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Account Recovery</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Account Recovery</mat-label>
+          <input type="text" matInput formControlName="recovery_mode" name="recovery_mode" [ngModel]="vaultData.recovery_mode" placeholder="Enter account recovery mode">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Question</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Security Question</mat-label>
+          <input type="text" matInput formControlName="security_question" name="security_question" [ngModel]="vaultData.security_question" placeholder="Enter security question">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Security Answer</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Security Answer</mat-label>
+          <input type="text" matInput formControlName="security_answer" name="security_answer" [ngModel]="vaultData.security_answer" placeholder="Enter security answer">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Private Key</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Private Key</mat-label>
+          <input type="text" matInput formControlName="privatekey" name="privatekey" [ngModel]="vaultData.privatekey" placeholder="Enter Private Key">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Toke</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Toke</mat-label>
+          <input type="text" matInput formControlName="token" name="token" [ngModel]="vaultData.token" placeholder="Enter Token">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="data-container">
+      <div class="data-name">
+        <span>Wallet Phrase</span>
+      </div>
+      <div class="data-value">
+        <mat-form-field appearance="legacy">
+          <mat-label>Wallet Phrase</mat-label>
+          <input type="text" matInput formControlName="walletphrase" name="walletphrase" [ngModel]="vaultData.walletphrase" placeholder="Enter Wallet Phrase">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="modal-action">
+      <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+      <button mat-stroked-button color="warn" (click)="toggle('crypto')">Back</button>
+      <button mat-raised-button color="primary" mat-button type="submit" (click)="updateData();">Update</button>
+    </div>
+  </form>
+
+  </div>
+</ng-template>
+
+<ng-template #updateOthers>
+  <div class="ng-template">
+    <div class="data-header" *ngIf="!savedChanges">
+      <h1 class="header-text">Updating {{vaultData.site_name}}</h1>
+    </div>
+  
+    <mat-error *ngIf="!savedChanges" mat-button mat-raised-button>
+      <div>
+        <mat-progress-bar
+          mode="indeterminate"
+          *ngIf="dataLoading"
+        ></mat-progress-bar>
+        <mat-error *ngIf="error" color="warn">{{ errorMessage }}</mat-error>
+      </div>
+    </mat-error>
+  
+    <!-- <mat-error *ngIf="savedChanges" class="success">
+      <h2 style="color: green">{{vaultData.site_name}} Successfully Updated</h2>
+      <label class="small-spacer"></label>
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close
+        (click)="
+          savedChanges = false
+        "
+      >
+        Ok
+      </button>
+    </mat-error> -->
+  
+    <form *ngIf="!savedChanges" #editVault="ngForm" novalidate [formGroup]="othersGroup">
+      <input type="hidden" name="_id" formControlName="_id" [ngModel]="vaultData._id" required/>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Platform</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Platform</mat-label>
+            <input type="text" matInput formControlName="platform" name="platform" [ngModel]="vaultData.platform" placeholder="Enter Platform">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Name</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="site_name" name="site_name" [ngModel]="vaultData.site_name" placeholder="Enter Name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>URL</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>URL</mat-label>
+            <input type="text" matInput formControlName="url" name="url" [ngModel]="vaultData.url" placeholder="Enter URL">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Email</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Email Address</mat-label>
+            <input type="email" matInput formControlName="email" name="email" [ngModel]="vaultData.email" placeholder="Enter email address">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Password</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input type="text" matInput formControlName="password" name="password" [ngModel]="vaultData.password" placeholder="Enter password">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Account Username</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Account Username</mat-label>
+            <input type="text" matInput formControlName="account_username" name="account_username" [ngModel]="vaultData.account_username" placeholder="Enter Account Username">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>User ID</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>User ID</mat-label>
+            <input type="text" matInput formControlName="user_id" name="user_id" [ngModel]="vaultData.user_id" placeholder="Enter User ID">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Authentication Method</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Authentication Method</mat-label>
+            <input type="text" matInput formControlName="auth" name="auth" [ngModel]="vaultData.auth" placeholder="Enter authentication">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Registered Mobile Number</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Registered Mobile Number</mat-label>
+            <input type="text" matInput formControlName="reg_number" name="reg_number" [ngModel]="vaultData.reg_number" placeholder="Enter Registered Number">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Account Recovery</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Account Recovery</mat-label>
+            <input type="text" matInput formControlName="recovery_mode" name="recovery_mode" [ngModel]="vaultData.recovery_mode" placeholder="Enter account recovery mode">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Question</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Security Question</mat-label>
+            <input type="text" matInput formControlName="security_question" name="security_question" [ngModel]="vaultData.security_question" placeholder="Enter security question">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Answer</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Security Answer</mat-label>
+            <input type="text" matInput formControlName="security_answer" name="security_answer" [ngModel]="vaultData.security_answer" placeholder="Enter security answer">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Database Admin</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Database Admin</mat-label>
+            <input type="text" matInput formControlName="db_admin" name="db_admin" [ngModel]="vaultData.db_admin" placeholder="Enter Database Admin">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Database Username</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Database Username</mat-label>
+            <input type="text" matInput formControlName="db_username" name="db_username" [ngModel]="vaultData.db_username" placeholder="Enter Database Username">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Database Name</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Database Name</mat-label>
+            <input type="text" matInput formControlName="db_name" name="db_name" [ngModel]="vaultData.db_name" placeholder="Enter Database Name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Database Password</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Database Password</mat-label>
+            <input type="text" matInput formControlName="db_password" name="db_password" [ngModel]="vaultData.db_password" placeholder="Enter Database Password">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Database Manager</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Database Manager</mat-label>
+            <input type="text" matInput formControlName="db_manager" name="db_manager" [ngModel]="vaultData.db_manager" placeholder="Enter Database Manager">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Website Password</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Website Password</mat-label>
+            <input type="text" matInput formControlName="site_password" name="site_password" [ngModel]="vaultData.site_password" placeholder="Enter Website Password">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Website URL</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Website URL</mat-label>
+            <input type="text" matInput formControlName="website_url" name="website_url" [ngModel]="vaultData.website_url" placeholder="Enter Website URL">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      
+      <div class="data-container">
+        <div class="data-name">
+          <span>FTP Username</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>FTP Username</mat-label>
+            <input type="text" matInput formControlName="ftp_username" name="ftp_username" [ngModel]="vaultData.ftp_username" placeholder="Enter FTP Username">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>FTP Password</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>FTP Password</mat-label>
+            <input type="text" matInput formControlName="ftp_password" name="ftp_password" [ngModel]="vaultData.ftp_password" placeholder="Enter FTP Password">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>FTP Hostname</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>FTP Hostname</mat-label>
+            <input type="text" matInput formControlName="ftp_hostname" name="ftp_hostname" [ngModel]="vaultData.ftp_hostname" placeholder="Enter ftp_hostname">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>FTP Port</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>FTP Port</mat-label>
+            <input type="text" matInput formControlName="ftp_port" name="ftp_port" [ngModel]="vaultData.ftp_port" placeholder="Enter FTP Port">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>App ID</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>App ID</mat-label>
+            <input type="text" matInput formControlName="app_id" name="app_id" [ngModel]="vaultData.app_id" placeholder="Enter App ID">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Application App ID</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Application App ID</mat-label>
+            <input type="text" matInput formControlName="application_app_id" name="application_app_id" [ngModel]="vaultData.application_app_id" placeholder="Enter Application App ID">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>App Secret</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>App Secret</mat-label>
+            <input type="text" matInput formControlName="app_secret" name="app_secret" [ngModel]="vaultData.app_secret" placeholder="Enter App Secret">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Client Token</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Client Token</mat-label>
+            <input type="text" matInput formControlName="client_token" name="client_token" [ngModel]="vaultData.client_token" placeholder="Enter Client Token">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Access Token</span>
+        </div>
+        <div class="data-value">
+          <mat-form-field appearance="legacy">
+            <mat-label>Access Token</mat-label>
+            <input type="text" matInput formControlName="access_token" name="access_token" [ngModel]="vaultData.access_token" placeholder="Enter Access Token">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="modal-action">
+        <button mat-dialog-close mat-stroked-button color="primary" >Close</button>
+        <button mat-stroked-button color="warn" (click)="toggle('crypto')">Back</button>
+        <button mat-raised-button color="primary" mat-button type="submit" (click)="updateData();">Update</button>
+      </div>
+    </form>
+  
+    </div>
+</ng-template>
+
+<ng-template #success>
+  <mat-error  class="success">
+    <div
+      class="mat-elevation-z0"
+    >
+    <p style="color: green">Data successfully updated</p>
+      <label class="small-spacer"></label>
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        style="margin-top: 10px; float: right"
+        mat-dialog-close
+        (click)="savedChanges = false"
+      >
+        Ok
+      </button>
+    </div>
+  </mat-error>
+</ng-template>

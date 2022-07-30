@@ -1,0 +1,67 @@
+<div class="content">
+  <div *ngIf="_auth.userData as user">
+    <mat-card class="example-card mat-elevation-z4">
+      <mat-card-subtitle>
+        <h2>Please Verify Your Email Address</h2>
+      </mat-card-subtitle>
+      <mat-card-content>
+        <div class="formGroup">
+          <p class="text-center">
+            A confirmation email was sent to <strong>{{ user.email }}</strong
+            >. <br />
+            Please check your inbox or spam folder and click on the link to
+            verfiy your email address.
+          </p>
+        </div>
+
+        <div class="google-login">
+          <div class="divider">
+            <span class="login-spacer"></span>
+            <span>Didn't get the link?</span>
+            <span class="login-spacer"></span>
+          </div>
+          <button class="google-signin-button" (click)="reSendVerification()">
+            <span>Resend Verification Email</span>
+          </button>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-progress-bar
+          mode="indeterminate"
+          *ngIf="dataLoading"
+        ></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+
+  <ng-template #showVerifyAccount>
+    <div>
+      <mat-card class="example-card mat-elevation-z4">
+        <mat-card-subtitle>
+          <h2>You Need To Verify Your Email Address</h2>
+          <div *ngIf="afAuth.user | async as user">
+            User {{ user.email }} is Logged In
+          </div>
+        </mat-card-subtitle>
+        <mat-card-content>
+          <div class="google-login">
+            <div class="divider">
+              <span class="login-spacer"></span>
+              <span>Didn't get the link?</span>
+              <span class="login-spacer"></span>
+            </div>
+            <button class="google-signin-button" (click)="reSendVerification()">
+              <span>Resend Verification Email</span>
+            </button>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <mat-progress-bar
+            mode="indeterminate"
+            *ngIf="dataLoading"
+          ></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </ng-template>
+</div>

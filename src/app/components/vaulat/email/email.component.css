@@ -1,0 +1,33 @@
+.table-container {
+  width: 100%;
+}
+.table-container .input-button-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  padding-right: 25px;
+}
+.table-container .mat-row {
+  border: none;
+  transition: all 0.4s ease-in-out;
+}
+.table-container .mat-row:hover {
+  cursor: pointer;
+  background-color: rgb(236, 235, 235);
+}
+.table-container .mat-row:nth-child(odd) {
+  background-color: rgb(243, 243, 243);
+  transition: all 0.4s ease-in-out;
+}
+.table-container .mat-row:nth-child(odd):hover {
+  cursor: pointer;
+  background-color: rgb(236, 235, 235);
+}
+.table-container td.mat-cell,
+.table-container th.mat-header-cell {
+  border: none;
+}/*# sourceMappingURL=email.component.css.map */
