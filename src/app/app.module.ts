@@ -53,6 +53,7 @@ import { VaultappComponent } from './vaultapp/vaultapp.component';
 import { MatRippleModule } from '@angular/material/core';
 import { DialogComponent } from './components/dialog/newdatadialog/dialog.component';
 import { VieweditdialogComponent } from './components/dialog/vieweditdialog/vieweditdialog.component';
+import { EncrServiceService } from './shared/encr/encr-service.service';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { VieweditdialogComponent } from './components/dialog/vieweditdialog/view
     provideFirestore(() => getFirestore()),
   ],
   providers: [
+    EncrServiceService
   ],
   bootstrap: [AppComponent]
 })

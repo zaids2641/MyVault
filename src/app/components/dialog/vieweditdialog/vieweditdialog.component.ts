@@ -1,6 +1,10 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { shareReplay } from 'rxjs/operators';
 import { ServiceService } from 'src/app/shared/services/service.service';
 import { DialogComponent } from '../newdatadialog/dialog.component';
@@ -36,8 +40,7 @@ export class VieweditdialogComponent implements OnInit {
   ) {}
 
   successDialog() {
-   this.dialog.open(DialogComponent, {
-    });
+    this.dialog.open(DialogComponent, {});
   }
 
   ngOnInit(): void {

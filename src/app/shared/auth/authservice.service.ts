@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs/Rx';
 import { User } from './user';
 import { collection, Firestore } from '@angular/fire/firestore';
+import { EncrServiceService } from '../encr/encr-service.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthserviceService {
+export class AuthserviceService implements OnInit {
   authState: any = null;
   item!: Observable<any>;
   public userData: any;
@@ -28,6 +29,7 @@ export class AuthserviceService {
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
+    private EncrDecr: EncrServiceService,
     public firestore: Firestore
   ) {
     this.afAuth.authState.subscribe((user) => {
@@ -36,12 +38,14 @@ export class AuthserviceService {
         sessionStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(sessionStorage.getItem('user')!);
       }
-      // else {
-      //   sessionStorage.setItem('user', 'null');
-      //   JSON.parse(sessionStorage.getItem('user')!);
-      // }
+      else {
+        sessionStorage.setItem('user', 'null');
+        JSON.parse(sessionStorage.getItem('user')!);
+      }
     });
   }
+
+  ngOnInit() {}
 
   // Get user Status
   setUserStatus(userStatus: any): void {
@@ -72,6 +76,12 @@ export class AuthserviceService {
     this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
+        if (result.user?.uid !== 'gQgFGdP5HMgZs1PTZAYkVwDSSWX2') {
+          window.alert('You are not the Admin');
+          this.SignOut();
+          this.router.navigate(['']);
+        }
+
         this.ngZone.run(() => {
           this.userData = result.user;
           sessionStorage.setItem('user', JSON.stringify(this.userData));
@@ -101,6 +111,15 @@ export class AuthserviceService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
+        var encrypted = this.EncrDecr.set(result.user?.email, result.user?.uid);
+        var decrypted = this.EncrDecr.get(result.user?.email, encrypted);
+
+        if (result.user?.uid !== decrypted) {
+          window.alert('You are not the Admin');
+          this.SignOut();
+          this.router.navigate(['']);
+        }
+
         this.ngZone.run(() => {
           this.userData = result.user;
           sessionStorage.setItem('user', JSON.stringify(this.userData));
@@ -172,8 +191,9 @@ export class AuthserviceService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
+    const encrypted = this.EncrDecr.set(user.email, user.uid);
     const userData: User = {
-      uid: user.uid,
+      uid: encrypted,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,

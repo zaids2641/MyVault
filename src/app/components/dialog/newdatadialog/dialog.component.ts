@@ -1,6 +1,10 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { ServiceService } from 'src/app/shared/services/service.service';
 
 @Component({
@@ -31,8 +35,7 @@ export class DialogComponent implements OnInit {
   ) {}
 
   successDialog(_vault: any) {
-   this.dialog.open(DialogComponent, {
-    });
+    this.dialog.open(DialogComponent, {});
   }
 
   ngOnInit(): void {
@@ -125,7 +128,7 @@ export class DialogComponent implements OnInit {
         .then((data) => {
           // this.savedChanges = true;
           this.dialogRef.close();
-          this.successDialog(vault = 'success');
+          this.successDialog((vault = 'success'));
           this.dataLoading = false;
         })
         .catch((error) => {
@@ -146,7 +149,7 @@ export class DialogComponent implements OnInit {
         .then((data) => {
           // this.savedChanges = true;
           this.dialogRef.close();
-          this.successDialog(vault = 'success');
+          this.successDialog((vault = 'success'));
           this.dataLoading = false;
         })
         .catch((error) => {
@@ -167,7 +170,7 @@ export class DialogComponent implements OnInit {
         .then((data) => {
           // this.savedChanges = true;
           this.dialogRef.close();
-          this.successDialog(vault = 'success');
+          this.successDialog((vault = 'success'));
           this.dataLoading = false;
         })
         .catch((error) => {
@@ -188,7 +191,7 @@ export class DialogComponent implements OnInit {
         .then((data) => {
           // this.savedChanges = true;
           this.dialogRef.close();
-          this.successDialog(vault = 'success');
+          this.successDialog((vault = 'success'));
           this.dataLoading = false;
         })
         .catch((error) => {

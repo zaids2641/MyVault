@@ -37,10 +37,10 @@ export class LoginsignupComponent implements OnInit {
   GoogleAuth() {
     this._auth
       .GoogleAuth()
-      // .then((_success) => {})
-      // .catch((err) => {
-      //   err;
-      // });
+      .then((_success) => {})
+      .catch((err) => {
+        err;
+      });
   }
 
   SignOut() {
@@ -48,6 +48,6 @@ export class LoginsignupComponent implements OnInit {
   }
 
   passwordReset(email: any) {
-    this._auth.ForgotPassword(email.value);
+    
   }
 }
