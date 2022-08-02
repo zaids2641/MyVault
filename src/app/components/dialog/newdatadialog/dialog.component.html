@@ -89,30 +89,6 @@
           </mat-form-field>
 
           <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_question"
-              id="security_question"
-              matInput
-              placeholder="Your Security Question"
-            />
-            <mat-hint>What is your pet?</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question Answer</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_answer"
-              id="security_answer"
-              matInput
-              placeholder="Your Security Question Answer"
-            />
-            <mat-hint>Ans.: Dog</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
             <mat-label>2FA Authentication</mat-label>
             <input
               autocomplete="off"
@@ -123,6 +99,67 @@
             />
             <mat-hint>Google Authentication, Authy, Mobile Number</mat-hint>
           </mat-form-field>
+
+          <!-- Group Array -->
+          <div formArrayName="security" style="margin-top: 35px">
+            <div
+              fxlayout="row wrap"
+              fxLayoutGap="30px"
+              *ngFor="let spec of emailSecurityArray.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_question"
+                  id="security_question"
+                  matInput
+                  placeholder="Your Security Question"
+                />
+                <mat-hint>What is your pet?</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question Answer</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_answer"
+                  id="security_answer"
+                  matInput
+                  placeholder="Your Security Question Answer"
+                />
+                <mat-hint>Ans.: Dog</mat-hint>
+              </mat-form-field>
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  justify-items: center;
+                "
+              >
+                <button
+                  (click)="removeEmailSecurity(i)"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-items: center; margin-top: 25px">
+              <button
+                mat-stroked-button
+                type="button"
+                (click)="addEmailSecurity()"
+                mat-button
+                style="color: green"
+              >
+                <mat-icon>add_box</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
         <div mat-dialog-actions>
           <button mat-button mat-dialog-close (click)="this.emailGroup.reset()">
@@ -291,29 +328,62 @@
             <mat-hint>me@gmail.com, me@icloud.com</mat-hint>
           </mat-form-field>
 
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_question"
-              id="security_question"
-              matInput
-              placeholder="Your Security Question"
-            />
-            <mat-hint>What is your pet?</mat-hint>
-          </mat-form-field>
+          <!-- Group Array -->
+          <div formArrayName="security" style="margin-top: 35px">
+            <div
+              fxlayout="row wrap"
+              fxLayoutGap="30px"
+              *ngFor="let spec of webSecurityArray.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_question"
+                  id="security_question"
+                  matInput
+                  placeholder="Your Security Question"
+                />
+                <mat-hint>What is your pet?</mat-hint>
+              </mat-form-field>
 
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question Answer</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_answer"
-              id="security_answer"
-              matInput
-              placeholder="Your Security Question Answer"
-            />
-            <mat-hint>Ans.: Dog</mat-hint>
-          </mat-form-field>
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question Answer</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_answer"
+                  id="security_answer"
+                  matInput
+                  placeholder="Your Security Question Answer"
+                />
+                <mat-hint>Ans.: Dog</mat-hint>
+              </mat-form-field>
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  justify-items: center;
+                "
+              >
+                <button (click)="removeWebSecurity(i)" mat-button color="warn">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-items: center; margin-top: 25px">
+              <button
+                mat-stroked-button
+                type="button"
+                (click)="addWebSecurity()"
+                mat-button
+                style="color: green"
+              >
+                <mat-icon>add_box</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
         <div mat-dialog-actions>
           <button mat-button mat-dialog-close (click)="this.webGroup.reset()">
@@ -494,30 +564,6 @@
           </mat-form-field>
 
           <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_question"
-              id="security_question"
-              matInput
-              placeholder="Your Security Question"
-            />
-            <mat-hint>What is your pet?</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question Answer</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_answer"
-              id="security_answer"
-              matInput
-              placeholder="Your Security Question Answer"
-            />
-            <mat-hint>Ans.: Dog</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
             <mat-label>Private Key</mat-label>
             <input
               autocomplete="off"
@@ -552,6 +598,67 @@
             />
             <mat-hint>Your wallet Phrase</mat-hint>
           </mat-form-field>
+
+          <!-- Group Array -->
+          <div formArrayName="security" style="margin-top: 35px">
+            <div
+              fxlayout="row wrap"
+              fxLayoutGap="30px"
+              *ngFor="let spec of cryptoSecurityArray.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_question"
+                  id="security_question"
+                  matInput
+                  placeholder="Your Security Question"
+                />
+                <mat-hint>What is your pet?</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question Answer</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_answer"
+                  id="security_answer"
+                  matInput
+                  placeholder="Your Security Question Answer"
+                />
+                <mat-hint>Ans.: Dog</mat-hint>
+              </mat-form-field>
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  justify-items: center;
+                "
+              >
+                <button
+                  (click)="removeCryptoSecurity(i)"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-items: center; margin-top: 25px">
+              <button
+                mat-stroked-button
+                type="button"
+                (click)="addCryptoSecurity()"
+                mat-button
+                style="color: green"
+              >
+                <mat-icon>add_box</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div mat-dialog-actions>
@@ -739,30 +846,6 @@
           </mat-form-field>
 
           <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_question"
-              id="security_question"
-              matInput
-              placeholder="Your Security Question"
-            />
-            <mat-hint>What is your pet?</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
-            <mat-label>Security Question Answer</mat-label>
-            <input
-              autocomplete="off"
-              formControlName="security_answer"
-              id="security_answer"
-              matInput
-              placeholder="Your Security Question Answer"
-            />
-            <mat-hint>Ans.: Dog</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field appearance="legacy" fxFlex="0 1 45%">
             <mat-label>Database Admin</mat-label>
             <input
               autocomplete="off"
@@ -941,6 +1024,67 @@
             />
             <mat-hint>Your Access Token</mat-hint>
           </mat-form-field>
+
+          <!-- Group Array -->
+          <div formArrayName="security" style="margin-top: 35px">
+            <div
+              fxlayout="row wrap"
+              fxLayoutGap="30px"
+              *ngFor="let spec of othersSecurityArray.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_question"
+                  id="security_question"
+                  matInput
+                  placeholder="Your Security Question"
+                />
+                <mat-hint>What is your pet?</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy" fxFlex="0 1 45%">
+                <mat-label>Security Question Answer</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="security_answer"
+                  id="security_answer"
+                  matInput
+                  placeholder="Your Security Question Answer"
+                />
+                <mat-hint>Ans.: Dog</mat-hint>
+              </mat-form-field>
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  justify-items: center;
+                "
+              >
+                <button
+                  (click)="removeOthersSecurity(i)"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-items: center; margin-top: 25px">
+              <button
+                mat-stroked-button
+                type="button"
+                (click)="addOthersSecurity()"
+                mat-button
+                style="color: green"
+              >
+                <mat-icon>add_box</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
         <div mat-dialog-actions>
           <button

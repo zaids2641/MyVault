@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   MatDialog,
   MatDialogRef,
@@ -53,8 +53,9 @@ export class VieweditdialogComponent implements OnInit {
       reg_number: [''],
       provider: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
+      // security: this._formBuilder.array([
+      //   this.emailSecurityGroup()
+      // ])
     });
 
     this.webGroup = this._formBuilder.group({
@@ -69,8 +70,6 @@ export class VieweditdialogComponent implements OnInit {
       url: [''],
       reg_number: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
     });
 
     this.cryptoGroup = this._formBuilder.group({
@@ -86,8 +85,6 @@ export class VieweditdialogComponent implements OnInit {
       reg_number: [''],
       transaction_password: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
       privatekey: [''],
       token: [''],
       walletphrase: [''],
@@ -104,8 +101,6 @@ export class VieweditdialogComponent implements OnInit {
       url: [''],
       reg_number: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
       site_name: [''],
       site_password: [''],
       db_admin: [''],

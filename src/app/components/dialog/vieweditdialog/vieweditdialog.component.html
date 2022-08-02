@@ -82,20 +82,23 @@
         {{ vaultData.auth }}
       </div>
     </div>
-    <div class="data-container">
-      <div class="data-name">
-        <span>Security Question</span>
+
+    <div *ngFor="let item of vaultData.security; let i = index">
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Question {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_question }}
+        </div>
       </div>
-      <div class="data-value">
-        {{ vaultData.security_question }}
-      </div>
-    </div>
-    <div class="data-container">
-      <div class="data-name">
-        <span>Security Answer</span>
-      </div>
-      <div class="data-value">
-        {{ vaultData.security_answer }}
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Answer {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_answer }}
+        </div>
       </div>
     </div>
 
@@ -201,23 +204,6 @@
     </div>
     <div class="data-container">
       <div class="data-name">
-        <span>Security Question</span>
-      </div>
-      <div class="data-value">
-        {{ vaultData.security_question }}
-      </div>
-    </div>
-    <div class="data-container">
-      <div class="data-name">
-        <span>Security Answer</span>
-      </div>
-      <div class="data-value">
-        {{ vaultData.security_answer }}
-      </div>
-    </div>
-
-    <div class="data-container">
-      <div class="data-name">
         <span>Private Key</span>
       </div>
       <div class="data-value">
@@ -238,6 +224,25 @@
       </div>
       <div class="data-value">
         <p>{{ vaultData.walletphrase }}</p>
+      </div>
+    </div>
+
+    <div *ngFor="let item of vaultData.security; let i = index">
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Question {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_question }}
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Answer {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_answer }}
+        </div>
       </div>
     </div>
 
@@ -349,23 +354,6 @@
         {{ vaultData.url }}
       </div>
     </div>
-    <div class="data-container">
-      <div class="data-name">
-        <span>Security Question</span>
-      </div>
-      <div class="data-value">
-        {{ vaultData.security_question }}
-      </div>
-    </div>
-    <div class="data-container">
-      <div class="data-name">
-        <span>Security Answer</span>
-      </div>
-      <div class="data-value">
-        {{ vaultData.security_answer }}
-      </div>
-    </div>
-
     <div class="data-container" *ngIf="!vaultData.db_admin == false">
       <div class="data-name">
         <span>Database Admin</span>
@@ -487,6 +475,25 @@
       </div>
     </div>
 
+    <div *ngFor="let item of vaultData.security; let i = index">
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Question {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_question }}
+        </div>
+      </div>
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Answer {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_answer }}
+        </div>
+      </div>
+    </div>
+
     <div class="modal-action">
       <button mat-dialog-close mat-stroked-button color="primary">Close</button>
       <button
@@ -579,20 +586,23 @@
         {{ vaultData.auth }}
       </div>
     </div>
-    <div class="data-container">
-      <div class="data-name">
-        <span>Security Question</span>
+
+    <div *ngFor="let item of vaultData.security; let i = index">
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Question {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_question }}
+        </div>
       </div>
-      <div class="data-value">
-        {{ vaultData.security_question }}
-      </div>
-    </div>
-    <div class="data-container">
-      <div class="data-name">
-        <span>Security Answer</span>
-      </div>
-      <div class="data-value">
-        {{ vaultData.security_answer }}
+      <div class="data-container">
+        <div class="data-name">
+          <span>Security Answer {{ i + 1 }}</span>
+        </div>
+        <div class="data-value">
+          {{ item.security_answer }}
+        </div>
       </div>
     </div>
 
@@ -626,22 +636,6 @@
       </div>
     </mat-error>
 
-    <!-- <mat-error *ngIf="savedChanges" class="success">
-    <h2 style="color: green">{{vaultData.name}} Successfully Updated</h2>
-    <label class="small-spacer"></label>
-    <button
-      mat-button
-      mat-raised-button
-      color="primary"
-      mat-dialog-close
-      (click)="
-        savedChanges = false
-      "
-    >
-      Ok
-    </button>
-  </mat-error> -->
-
     <form
       *ngIf="!savedChanges"
       #editVault="ngForm"
@@ -663,6 +657,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Provider</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="provider"
@@ -681,6 +676,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Email Address</mat-label>
             <input
+              autocomplete="off"
               type="email"
               matInput
               formControlName="email"
@@ -699,6 +695,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="password"
@@ -717,6 +714,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Registered Mobile Number</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="reg_number"
@@ -735,6 +733,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Authentication</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="auth"
@@ -745,6 +744,7 @@
           </mat-form-field>
         </div>
       </div>
+
       <div class="data-container">
         <div class="data-name">
           <span>Account Recovery</span>
@@ -753,6 +753,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Account Recovery</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="recovery_mode"
@@ -763,66 +764,12 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="data-container">
-        <div class="data-name">
-          <span>Authentication</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Authentication</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="auth"
-              name="auth"
-              [ngModel]="vaultData.auth"
-              placeholder="Enter Authentication Method"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
-          <span>Security Question</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Question</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_question"
-              name="security_question"
-              [ngModel]="vaultData.security_question"
-              placeholder="Enter security question"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
-          <span>Security Answer</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Answer</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_answer"
-              name="security_answer"
-              [ngModel]="vaultData.security_answer"
-              placeholder="Enter security answer"
-            />
-          </mat-form-field>
-        </div>
-      </div>
 
       <div class="modal-action">
         <button mat-dialog-close mat-stroked-button color="primary">
           Close
         </button>
-        <button mat-stroked-button color="warn" (click)="toggle('vaultInfo')">
+        <button mat-stroked-button color="warn" (click)="toggle('email')">
           Back
         </button>
         <button
@@ -855,22 +802,6 @@
       </div>
     </mat-error>
 
-    <!-- <mat-error *ngIf="savedChanges" class="success">
-    <h2 style="color: green">{{vaultData.site_name}} Successfully Updated</h2>
-    <label class="small-spacer"></label>
-    <button
-      mat-button
-      mat-raised-button
-      color="primary"
-      mat-dialog-close
-      (click)="
-        savedChanges = false
-      "
-    >
-      Ok
-    </button>
-  </mat-error> -->
-
     <form
       *ngIf="!savedChanges"
       #editVault="ngForm"
@@ -892,6 +823,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Platform</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="platform"
@@ -910,6 +842,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Website Name</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="site_name"
@@ -928,6 +861,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Email Address</mat-label>
             <input
+              autocomplete="off"
               type="email"
               matInput
               formControlName="email"
@@ -946,6 +880,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="password"
@@ -964,6 +899,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>User ID</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="user_id"
@@ -982,6 +918,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Registered Mobile Number</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="reg_number"
@@ -1000,6 +937,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Authentication</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="auth"
@@ -1018,6 +956,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Account Recovery</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="recovery_mode"
@@ -1036,48 +975,13 @@
           <mat-form-field appearance="legacy">
             <mat-label>Authentication</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="auth"
               name="auth"
               [ngModel]="vaultData.auth"
               placeholder="Enter Authentication Method"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
-          <span>Security Question</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Question</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_question"
-              name="security_question"
-              [ngModel]="vaultData.security_question"
-              placeholder="Enter security question"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
-          <span>Security Answer</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Answer</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_answer"
-              name="security_answer"
-              [ngModel]="vaultData.security_answer"
-              placeholder="Enter security answer"
             />
           </mat-form-field>
         </div>
@@ -1120,22 +1024,6 @@
       </div>
     </mat-error>
 
-    <!-- <mat-error *ngIf="savedChanges" class="success">
-    <h2 style="color: green">{{vaultData.name}} Successfully Updated</h2>
-    <label class="small-spacer"></label>
-    <button
-      mat-button
-      mat-raised-button
-      color="primary"
-      mat-dialog-close
-      (click)="
-        savedChanges = false
-      "
-    >
-      Ok
-    </button>
-  </mat-error> -->
-
     <form
       *ngIf="!savedChanges"
       #editVault="ngForm"
@@ -1157,6 +1045,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Platform</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="platform"
@@ -1175,6 +1064,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Name</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="site_name"
@@ -1193,6 +1083,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>URL</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="url"
@@ -1211,6 +1102,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Email Address</mat-label>
             <input
+              autocomplete="off"
               type="email"
               matInput
               formControlName="email"
@@ -1229,6 +1121,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Account Username</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="account_username"
@@ -1247,6 +1140,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Authentication Method</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="auth"
@@ -1265,6 +1159,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="password"
@@ -1283,6 +1178,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Transaction Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="transaction_password"
@@ -1301,6 +1197,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Registered Mobile Number</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="reg_number"
@@ -1319,6 +1216,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Account Recovery</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="recovery_mode"
@@ -1331,48 +1229,13 @@
       </div>
       <div class="data-container">
         <div class="data-name">
-          <span>Security Question</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Question</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_question"
-              name="security_question"
-              [ngModel]="vaultData.security_question"
-              placeholder="Enter security question"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
-          <span>Security Answer</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Answer</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_answer"
-              name="security_answer"
-              [ngModel]="vaultData.security_answer"
-              placeholder="Enter security answer"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
           <span>Private Key</span>
         </div>
         <div class="data-value">
           <mat-form-field appearance="legacy">
             <mat-label>Private Key</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="privatekey"
@@ -1391,6 +1254,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Toke</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="token"
@@ -1409,6 +1273,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Wallet Phrase</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="walletphrase"
@@ -1457,22 +1322,6 @@
       </div>
     </mat-error>
 
-    <!-- <mat-error *ngIf="savedChanges" class="success">
-      <h2 style="color: green">{{vaultData.site_name}} Successfully Updated</h2>
-      <label class="small-spacer"></label>
-      <button
-        mat-button
-        mat-raised-button
-        color="primary"
-        mat-dialog-close
-        (click)="
-          savedChanges = false
-        "
-      >
-        Ok
-      </button>
-    </mat-error> -->
-
     <form
       *ngIf="!savedChanges"
       #editVault="ngForm"
@@ -1494,6 +1343,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Platform</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="platform"
@@ -1512,6 +1362,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Name</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="site_name"
@@ -1530,6 +1381,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>URL</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="url"
@@ -1548,6 +1400,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Email Address</mat-label>
             <input
+              autocomplete="off"
               type="email"
               matInput
               formControlName="email"
@@ -1566,6 +1419,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="password"
@@ -1584,6 +1438,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Account Username</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="account_username"
@@ -1602,6 +1457,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>User ID</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="user_id"
@@ -1620,6 +1476,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Authentication Method</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="auth"
@@ -1638,6 +1495,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Registered Mobile Number</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="reg_number"
@@ -1656,6 +1514,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Account Recovery</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="recovery_mode"
@@ -1668,48 +1527,13 @@
       </div>
       <div class="data-container">
         <div class="data-name">
-          <span>Security Question</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Question</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_question"
-              name="security_question"
-              [ngModel]="vaultData.security_question"
-              placeholder="Enter security question"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
-          <span>Security Answer</span>
-        </div>
-        <div class="data-value">
-          <mat-form-field appearance="legacy">
-            <mat-label>Security Answer</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="security_answer"
-              name="security_answer"
-              [ngModel]="vaultData.security_answer"
-              placeholder="Enter security answer"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="data-container">
-        <div class="data-name">
           <span>Database Admin</span>
         </div>
         <div class="data-value">
           <mat-form-field appearance="legacy">
             <mat-label>Database Admin</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="db_admin"
@@ -1728,6 +1552,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Database Username</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="db_username"
@@ -1746,6 +1571,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Database Name</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="db_name"
@@ -1764,6 +1590,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Database Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="db_password"
@@ -1782,6 +1609,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Database Manager</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="db_manager"
@@ -1800,6 +1628,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Website Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="site_password"
@@ -1818,6 +1647,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Website URL</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="website_url"
@@ -1837,6 +1667,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>FTP Username</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="ftp_username"
@@ -1855,6 +1686,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>FTP Password</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="ftp_password"
@@ -1873,6 +1705,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>FTP Hostname</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="ftp_hostname"
@@ -1891,6 +1724,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>FTP Port</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="ftp_port"
@@ -1909,6 +1743,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>App ID</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="app_id"
@@ -1927,6 +1762,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Application App ID</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="application_app_id"
@@ -1945,6 +1781,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>App Secret</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="app_secret"
@@ -1963,6 +1800,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Client Token</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="client_token"
@@ -1981,6 +1819,7 @@
           <mat-form-field appearance="legacy">
             <mat-label>Access Token</mat-label>
             <input
+              autocomplete="off"
               type="text"
               matInput
               formControlName="access_token"

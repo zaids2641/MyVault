@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   MatDialog,
   MatDialogRef,
@@ -46,8 +46,7 @@ export class DialogComponent implements OnInit {
       reg_number: [''],
       provider: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
+      security: this._formBuilder.array([this.securityGroup()]),
     });
 
     this.webGroup = this._formBuilder.group({
@@ -61,8 +60,7 @@ export class DialogComponent implements OnInit {
       url: [''],
       reg_number: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
+      security: this._formBuilder.array([this.securityGroup()]),
     });
 
     this.cryptoGroup = this._formBuilder.group({
@@ -77,11 +75,10 @@ export class DialogComponent implements OnInit {
       reg_number: [''],
       transaction_password: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
       privatekey: [''],
       token: [''],
       walletphrase: [''],
+      security: this._formBuilder.array([this.securityGroup()]),
     });
 
     this.othersGroup = this._formBuilder.group({
@@ -94,8 +91,6 @@ export class DialogComponent implements OnInit {
       url: [''],
       reg_number: [''],
       recovery_mode: [''],
-      security_question: [''],
-      security_answer: [''],
       site_name: [''],
       site_password: [''],
       db_admin: [''],
@@ -113,7 +108,55 @@ export class DialogComponent implements OnInit {
       app_secret: [''],
       client_token: [''],
       access_token: [''],
+      security: this._formBuilder.array([this.securityGroup()]),
     });
+  }
+
+  securityGroup() {
+    return this._formBuilder.group({
+      security_question: [],
+      security_answer: [],
+    });
+  }
+
+  get emailSecurityArray() {
+    return <FormArray>this.emailGroup.get('security');
+  }
+  addEmailSecurity() {
+    this.emailSecurityArray.push(this.securityGroup());
+  }
+  removeEmailSecurity(index: number) {
+    this.emailSecurityArray.removeAt(index);
+  }
+
+  get webSecurityArray() {
+    return <FormArray>this.webGroup.get('security');
+  }
+  addWebSecurity() {
+    this.webSecurityArray.push(this.securityGroup());
+  }
+  removeWebSecurity(index: number) {
+    this.webSecurityArray.removeAt(index);
+  }
+
+  get cryptoSecurityArray() {
+    return <FormArray>this.cryptoGroup.get('security');
+  }
+  addCryptoSecurity() {
+    this.cryptoSecurityArray.push(this.securityGroup());
+  }
+  removeCryptoSecurity(index: number) {
+    this.cryptoSecurityArray.removeAt(index);
+  }
+
+  get othersSecurityArray() {
+    return <FormArray>this.othersGroup.get('security');
+  }
+  addOthersSecurity() {
+    this.othersSecurityArray.push(this.securityGroup());
+  }
+  removeOthersSecurity(index: number) {
+    this.othersSecurityArray.removeAt(index);
   }
 
   submit() {
